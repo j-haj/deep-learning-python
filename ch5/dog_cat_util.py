@@ -1,34 +1,56 @@
 import os, shutil
 
-original_dataset_dir = '/Users/jhaj/src/github/deep-learning-python/ch5/data/train'
+original_dataset_dir = os.path.join(os.getcwd(),'data/train')
 base_dir = original_dataset_dir + '/cats_and_dogs_small'
-os.mkdir(base_dir)
-
+try:
+    os.mkdir(base_dir)
+except:
+    pass
 train_dir = os.path.join(base_dir, 'train')
-os.mkdir(train_dir)
+try:
+	os.mkdir(train_dir)
+except:
+    pass
 validation_dir = os.path.join(base_dir, 'validation')
-os.mkdir(validation_dir)
+try:
+	os.mkdir(validation_dir)
+except:
+    pass
 test_dir = os.path.join(base_dir, 'test')
-os.mkdir(test_dir)
-
+try:
+	os.mkdir(test_dir)
+except:
+    pass
 train_cats_dir = os.path.join(train_dir, 'cats')
-os.mkdir(train_cats_dir)
-
+try:
+    os.mkdir(train_cats_dir)
+except:
+    pass
 train_dogs_dir = os.path.join(train_dir, 'dogs')
-os.mkdir(train_dogs_dir)
-
+try:
+    os.mkdir(train_dogs_dir)
+except:
+    pass
 validation_cats_dir = os.path.join(validation_dir, 'cats')
-os.mkdir(validation_cats_dir)
-
+try:
+    os.mkdir(validation_cats_dir)
+except:
+    pass
 validation_dogs_dir = os.path.join(validation_dir, 'dogs')
-os.mkdir(validation_dogs_dir)
-
+try:
+    os.mkdir(validation_dogs_dir)
+except:
+    pass
 test_cats_dir = os.path.join(test_dir, 'cats')
-os.mkdir(test_cats_dir)
-
+try:
+    os.mkdir(test_cats_dir)
+except:
+    pass
 test_dogs_dir = os.path.join(test_dir, 'dogs')
-os.mkdir(test_dogs_dir)
-
+try:
+    os.mkdir(test_dogs_dir)
+except:
+    pass
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:
     src = os.path.join(original_dataset_dir, fname)

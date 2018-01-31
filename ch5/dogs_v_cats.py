@@ -4,11 +4,10 @@ from tensorflow.python.keras import optimizers
 from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
 
 import matplotlib.pyplot as plt
+import os
 
-train_dir =\
-'/Users/jhaj/src/github/deep-learning-python/ch5/data/train/cats_and_dogs_small/train'
-validation_dir =\
-'/Users/jhaj/src/github/deep-learning-python/ch5/data/train/cats_and_dogs_small/validation'
+train_dir = os.path.join(os.getcwd(), 'data/train/cats_and_dogs_small/train')
+validation_dir = os.path.join(os.getcwd(), 'data/train/cats_and_dogs_small/validation')
 
 def build_data_generators():
     '''Returns data generators for use on the image data'''
