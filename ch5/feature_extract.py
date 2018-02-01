@@ -7,7 +7,7 @@ from tensorflow.python.keras.applications import VGG16
 from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
 
 
-base_dir = os.getcwd()
+base_dir = os.path.join(os.getcwd(), 'data/train/cats_and_dogs_small')
 train_dir = os.path.join(base_dir, 'train')
 validation_dir = os.path.join(base_dir, 'validation')
 test_dir = os.path.join(base_dir, 'test')
@@ -55,7 +55,9 @@ train_features = np.reshape(train_features, (2000, 4 * 4 * 512))
 validation_features = np.reshape(validation_features, (1000, 4 * 4 * 512))
 test_veatures = np.reshape(test_features, (1000, 4 * 4 * 512))
 
+conv_base.trainable = False
 model = models.Sequential()
+model.add(conv_base)
 model.add(layers.Dense(256, activation='relu', input_dim=4 * 4 * 512))
 model.add(layers.Dropout(0.5))
 model.add(layers.Dense(1, activation='sigmoid'))
@@ -78,7 +80,7 @@ epochs = range(1, len(acc) + 1)
 plt.plot(epochs, acc, 'bo', label='Training acc')
 plt.plot(epochs, val_acc, 'b', label='Validation acc')
 plt.title('Training and validation accuracy')
-plt.legen()
+plt.legend()
 
 plt.savefig('training_acc_ext.pdf', format='pdf')
 plt.clf()
